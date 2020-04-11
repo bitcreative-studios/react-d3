@@ -1,5 +1,4 @@
 {
-
   "name": "react-d3",
   "version": "0.1.0",
   "private": true,
@@ -13,16 +12,18 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "tailwindcss": "^1.2.0"
   },
   "scripts": {
+    "build": "yarn build:css && yarn build:react",
+    "build:css": "postcss src/styles/tailwind.styles.css -o src/styles/main.css",
+    "build:react": "react-scripts build",
+    "eject": "react-scripts eject",
+    "prestart": "yarn watch:css",
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "watch:css": "postcss src/styles/tailwind.styles.css -o src/styles/main.css"
   },
   "browserslist": {
     "production": [
@@ -35,5 +36,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "postcss-cli": "^7.1.0",
+    "prettier": "^2.0.4"
   }
 }
