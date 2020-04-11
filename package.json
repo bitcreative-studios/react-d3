@@ -1,7 +1,12 @@
 {
+
   "name": "react-d3",
   "version": "0.1.0",
   "private": true,
+  "main": "index.js",
+  "repository": "git@github.com:bitwhys/react-d3.git",
+  "author": "George Bockari <bitwhys@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
