@@ -1,20 +1,18 @@
 import React, { useRef } from "react"
 import PropTypes from "prop-types"
-import useD3Effect from "./useD3Effect"
 
-const BarChart = ({ data, height = 150, width = 300 }) => {
+import { useD3Effect, useResizeObserver } from "./hooks"
+
+const BarChart = ({ data }) => {
   const svgRef = useRef()
   const tooltipPadding = 10
 
-  useD3Effect({ svgRef, height, width, tooltipPadding, dependencies: [data] })
+  useD3Effect({ svgRef, tooltipPadding, dependencies: [data] })
+  const dimension = useResizeObserver(svgRef)
+  console.log(dimension)
 
   return (
-    <svg
-      className="bg-gray-300 overflow-visible"
-      width={width}
-      height={height}
-      ref={svgRef}
-    >
+    <svg className="bg-gray-300 overflow-visible w-full" ref={svgRef}>
       <g className="x-axis" />
       <g className="y-axis" />
     </svg>
@@ -23,8 +21,6 @@ const BarChart = ({ data, height = 150, width = 300 }) => {
 
 BarChart.propTypes = {
   data: PropTypes.arrayOf(PropTypes.number).isRequired,
-  height: PropTypes.number,
-  width: PropTypes.number,
 }
 
 export default BarChart
