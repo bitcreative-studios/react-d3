@@ -19,6 +19,8 @@
 .env.production.local
 .idea
 .vscode
+using-react-hooks-with-d3-master
+react-d3-workshop-master
 
 npm-debug.log*
 yarn-debug.log*
